@@ -11,10 +11,10 @@ from .utils.generic_utils import deserialize_keras_object
 from .engine import Layer
 
 
-def poly_2(x, a, b, c):
+def poly_2(x):
     """polynomial (power<=2) activation function.
     """
-    return a*x*x+b*x+c
+    return 0.00125*x*x+0.5*x+50
 
 
 
