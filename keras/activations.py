@@ -11,6 +11,13 @@ from .utils.generic_utils import deserialize_keras_object
 from .engine import Layer
 
 
+def poly_2(x, a, b, c):
+    """polynomial (power<=2) activation function.
+    """
+    return a*x*x+b*x+c
+
+
+
 def softmax(x, axis=-1):
     """Softmax activation function.
 
