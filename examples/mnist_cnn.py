@@ -45,16 +45,28 @@ y_train = keras.utils.to_categorical(y_train, num_classes)
 y_test = keras.utils.to_categorical(y_test, num_classes)
 
 model = Sequential()
-model.add(Conv2D(20, kernel_size=(3, 3),
+model.add(Conv2D(32, kernel_size=(3, 3),
                  input_shape=input_shape))
+
+model.add(Conv2D(32, kernel_size=(3, 3),
+                 activation='poly_2'))
 
 model.add(AvgPooling2D(pool_size=(2, 2)))
 
-model.add(Conv2D(50, (3, 3), activation='poly_2'))
+model.add(Conv2D(64, kernel_size=(3, 3)))
+
+model.add(Conv2D(64, kernel_size=(3, 3), activation='poly_2'))
+
+model.add(Conv2D(128, kernel_size=(3, 3)))
+
+
+model.add(AvgPooling2D(pool_size=(2, 2)))
+
+model.add(Conv2D(128, kernel_size=(3, 3)), activation='poly_2')
 
 model.add(Dropout(0.25))
 model.add(Flatten())
-model.add(Dense(500))
+model.add(Dense(256))
 model.add(Dropout(0.5))
 model.add(Dense(num_classes))
 
